@@ -1,0 +1,21 @@
+{
+  "db": {
+    "type": "mysql",
+    "ip": "192.168.0.73",
+    "port": 3306,
+    "driver": "Mysql ODBC 8.0 UNICODE Driver",
+    "schema": "TZX_FloodDisaster_HN",
+    "user": "root",
+    "password": "3edc9ijn~"
+  },
+  "sql": {
+    "select_sql": "SELECT CODE, RuleValidTime, STDT, WarnGradeID, Threshold, WarnTypeID FROM WarnRule_B_Other where WarnTypeID = :f1<int>;",
+    "update_sql": "update WarnRule_B_Other set WarnTypeID = :f1<int> where WarnTypeID = :f2<int>;",
+    "inster_sql": "insert into WarnRule_B_Other (CODE, RuleValidTime, STDT, WarnGradeID, Threshold, WarnTypeID) values (:f1<char[32]>, :f2<timestamp>, :f3<int>, :f4<int>, :f5<float>, :f6<int>);",
+    "delete_sql": "delete from WarnRule_B_Other where WarnTypeID = :f1<int>"
+  },
+  "path": "D:/1_wangyingjie/readfile/sync_data",
+  "warnTypeID": 21
+
+}
+
