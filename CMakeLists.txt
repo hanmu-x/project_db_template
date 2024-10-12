@@ -34,7 +34,11 @@ endif ()
 include(silly_utils)
 include_directories("silly_utils/su")
 
+# 添加core目录下的头文件到项目
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/core)
+
 # 添加目录
+add_subdirectory(core)
 add_subdirectory(src)
 
 

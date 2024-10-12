@@ -16,6 +16,8 @@ class Config : public silly_singleton<Config>
 public:
 
 	std::string odbc;
+	std::string select_sql;
+	std::string update_sql;
 	std::string inster_sql;
 	std::string delete_sql;
 	std::string fpath; 	// 文件根路径
@@ -23,7 +25,6 @@ public:
 
 	bool read_config(std::string config_path)
 	{
-
 		bool status = false;
 		Json::Value jv_root = silly_jsonpp::loadf(config_path);
 		if (jv_root.isNull())
@@ -34,15 +35,14 @@ public:
 		otl_conn_opt opt = otl_tools::conn_opt_from_json(jv_root["db"]);
 		odbc = opt.dump_odbc();
 		fpath = jv_root["path"].asString();
+		select_sql = jv_root["sql"]["select_sql"].asString();
+		update_sql = jv_root["sql"]["update_sql"].asString();
 		inster_sql = jv_root["sql"]["inster_sql"].asString();
 		delete_sql = jv_root["sql"]["delete_sql"].asString();
-		//warnTypeID = jv_root["warnTypeID"].asInt();
-
 
 		status = true;
 		return status;
 	}
-	
 
 };
 
